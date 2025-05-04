@@ -3,21 +3,20 @@ const qrcode = require('qrcode-terminal');
 const moment = require('moment-timezone');
 const schedule = require('node-schedule');
 const express = require('express');
-app.set('trust proxy', true);
 const http = require('http');
 const path = require('path');
 const multer = require('multer');
 const { MessageMedia } = require('whatsapp-web.js');
-
 const app = express();
+app.set('trust proxy', true);
 const server = http.createServer(app);
 const io = require('socket.io')(server, {
-    path: '/wp/socket.io',
+    path: '/socket.io',
     cors: {
-      origin: "https://server.mustakil.co",
-      methods: ["GET", "POST"]
+        origin: "http://localhost:3000/",
+        methods: ["GET", "POST"]
     }
-  });
+});
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -46,7 +45,7 @@ async function mesajGonder(numara, mesaj) {
 
 const upload = multer({ storage: multer.memoryStorage() });
 
-app.post('/wp/api/send', upload.single('image'), async (req, res) => {
+app.post('/api/send', upload.single('image'), async (req, res) => {
     let { numbers, message, delay } = req.body;
     if (!numbers || !message) {
         return res.status(400).json({ error: 'Numara ve mesaj gerekli.' });
@@ -102,7 +101,7 @@ app.post('/wp/api/send', upload.single('image'), async (req, res) => {
     }
 });
 
-app.post('/wp/api/reset', async (req, res) => {
+app.post('/api/reset', async (req, res) => {
     try {
         await client.logout();
         setTimeout(() => {

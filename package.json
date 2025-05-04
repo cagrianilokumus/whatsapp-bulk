@@ -1,19 +1,36 @@
 {
-  "name": "wpe",
+  "name": "whatsapp-api",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "WhatsApp Web API entegrasyonu",
+  "main": "app.js",
   "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cagrianilokumus/my-node-app.git"
-  },
-  "author": "",
+  "keywords": [
+    "whatsapp",
+    "api",
+    "messaging",
+    "automation"
+  ],
+  "author": "Mustakil",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cagrianilokumus/my-node-app/issues"
+  "dependencies": {
+    "express": "^4.21.2",
+    "http": "^0.0.1-security",
+    "moment-timezone": "^0.5.48",
+    "multer": "^1.4.5-lts.1",
+    "node-schedule": "^2.1.1",
+    "path": "^0.12.7",
+    "qrcode-terminal": "^0.12.0",
+    "socket.io": "^4.8.1",
+    "whatsapp-web.js": "^1.27.0"
   },
-  "homepage": "https://github.com/cagrianilokumus/my-node-app#readme",
-  "description": ""
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
 }
