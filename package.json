@@ -1,0 +1,19 @@
+{
+  "name": "wpe",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cagrianilokumus/my-node-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cagrianilokumus/my-node-app/issues"
+  },
+  "homepage": "https://github.com/cagrianilokumus/my-node-app#readme",
+  "description": ""
+}
